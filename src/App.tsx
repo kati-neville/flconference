@@ -102,7 +102,7 @@ function App() {
 				<h1 className="text-2xl font-medium">HEARING & SEEING CAMPAIGN</h1>
 			</div>
 
-			<div className="max-w-lg w-full space-y-12">
+			<div className="max-w-lg md:w-full w-[90%] mx-auto space-y-12">
 				{Object.entries(links).map(([group, groupLinks]) => (
 					<div key={group}>
 						<h2 className="text-xl font-semibold mb-4 text-left">{group}</h2>
