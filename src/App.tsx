@@ -123,11 +123,9 @@ function App() {
 			</div>
 
 			{type ? (
-				<div className="mt-12 text-center">
-					<h2 className="text-xl font-semibold mb-4 text-center">
-						Mobile Apps
-					</h2>
-					<div className="flex flex-col sm:flex-row justify-center h-20 items-center gap-4">
+				<div className="mt-12 text-center sm:space-y-12 space-y-6">
+					<h2 className="text-xl font-semibold text-center">Mobile Apps</h2>
+					<div className="flex flex-col sm:flex-row justify-center items-center gap-4">
 						{appLinks.map(link => (
 							<a
 								key={link.name}
