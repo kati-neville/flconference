@@ -6,6 +6,8 @@ import {
 	FaTiktok,
 	FaFacebook,
 	FaPodcast,
+	FaGooglePlay,
+	FaApple,
 } from "react-icons/fa";
 
 const links = {
@@ -92,7 +94,25 @@ const links = {
 	],
 };
 
+const appLinks = [
+	{
+		name: "Download on Android",
+		icon: <FaGooglePlay className="w-6 h-6" />,
+		url: "https://play.google.com/store/apps/details?id=io.bemasolution.dagsermons&hl=en",
+	},
+	{
+		name: "Download on iOS",
+		icon: <FaApple className="w-6 h-6" />,
+		url: "https://apps.apple.com/gh/app/dag-sermons/id6502289149",
+	},
+];
+
 function App() {
+	const params = new URLSearchParams(window.location.search);
+
+	// Get individual parameters
+	const type = params.get("type"); // "John"
+
 	return (
 		<div className="min-h-screen w-screen flex flex-col items-center pb-8">
 			<div className="w-fit mx-auto">
@@ -102,26 +122,47 @@ function App() {
 				<h1 className="text-2xl font-medium">HEARING & SEEING CAMPAIGN</h1>
 			</div>
 
-			<div className="max-w-lg md:w-full w-[90%] mx-auto space-y-12">
-				{Object.entries(links).map(([group, groupLinks]) => (
-					<div key={group}>
-						<h2 className="text-xl font-semibold mb-4 text-left">{group}</h2>
-						<div className="grid grid-cols-2 gap-4">
-							{groupLinks.map(link => (
-								<a
-									key={link.name}
-									href={link.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="flex items-center justify-start gap-3 p-4 border rounded-xl shadow hover:shadow-md transition">
-									{link.icon}
-									<span className="font-medium">{link.name}</span>
-								</a>
-							))}
-						</div>
+			{type ? (
+				<div className="mt-12 text-center">
+					<h2 className="text-xl font-semibold mb-4 text-center">
+						Mobile Apps
+					</h2>
+					<div className="flex flex-col sm:flex-row justify-center h-20 items-center gap-4">
+						{appLinks.map(link => (
+							<a
+								key={link.name}
+								href={link.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="flex items-center justify-start gap-3 p-4 border rounded-xl shadow hover:shadow-md transition">
+								{link.icon}
+								<span className="font-medium">{link.name}</span>
+							</a>
+						))}
 					</div>
-				))}
-			</div>
+				</div>
+			) : (
+				<div className="max-w-lg md:w-full w-[90%] mx-auto space-y-12">
+					{Object.entries(links).map(([group, groupLinks]) => (
+						<div key={group}>
+							<h2 className="text-xl font-semibold mb-4 text-left">{group}</h2>
+							<div className="grid grid-cols-2 gap-4">
+								{groupLinks.map(link => (
+									<a
+										key={link.name}
+										href={link.url}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="flex items-center justify-start gap-3 p-4 border rounded-xl shadow hover:shadow-md transition">
+										{link.icon}
+										<span className="font-medium">{link.name}</span>
+									</a>
+								))}
+							</div>
+						</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
