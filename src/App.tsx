@@ -77,6 +77,11 @@ const links = {
 			url: "https://www.instagram.com/themillsdude/",
 		},
 		{
+			name: "Twitter",
+			icon: <FaTwitter className="w-6 h-6" />,
+			url: "https://x.com/themillsdude",
+		},
+		{
 			name: "YouTube",
 			icon: <FaYoutube className="w-6 h-6" />,
 			url: "https://www.youtube.com/@MeetingGod_",
